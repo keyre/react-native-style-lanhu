@@ -1,0 +1,15 @@
+{
+  "name": "react-native-style-lanhu",
+  "description": "Extension to get react native style when copying style from lanhu",
+  "version": "0.1.0",
+  "manifest_version": 3,
+  "permissions": [
+    "clipboardRead"
+  ],
+  "content_scripts": [
+    {
+      "matches": ["https://lanhuapp.com/*"],
+      "js": ["copy.js"]
+    }
+  ]
+}
