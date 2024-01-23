@@ -55,6 +55,15 @@ const convert = text => {
 
         break;
       }
+      case 'box-shadow': {
+        // box-shadow: 0px 3px 6px 0px #FFE3CD;
+        const [width,height,shadowRadius,_,shadowColor] = value.split(' ');
+        add('shadowOffset', `{ width: ${parseInt(width)}, height: ${parseInt(height)} }`)
+        add('shadowRadius', parseInt(shadowRadius))
+        add('shadowColor', toStr(shadowColor))
+        add('elevation', parseInt(shadowRadius))
+        break;
+      }
       default: {
         add(hyphenToCamelCase(key), parseInt(value));
         break;
