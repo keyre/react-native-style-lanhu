@@ -59,6 +59,7 @@ const convert = text => {
         // box-shadow: 0px 3px 6px 0px #FFE3CD;
         const [width,height,shadowRadius,_,shadowColor] = value.split(' ');
         add('shadowOffset', `{ width: ${parseInt(width)}, height: ${parseInt(height)} }`)
+        add('shadowOpacity', 1)
         add('shadowRadius', parseInt(shadowRadius))
         add('shadowColor', toStr(shadowColor))
         add('elevation', parseInt(shadowRadius))
