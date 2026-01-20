@@ -57,12 +57,12 @@ const convert = text => {
       }
       case 'box-shadow': {
         // box-shadow: 0px 3px 6px 0px #FFE3CD;
-        const [width,height,shadowRadius,_,shadowColor] = value.split(' ');
-        add('shadowOffset', `{ width: ${parseInt(width)}, height: ${parseInt(height)} }`)
-        add('shadowOpacity', 1)
-        add('shadowRadius', parseInt(shadowRadius))
-        add('shadowColor', toStr(shadowColor))
-        add('elevation', parseInt(shadowRadius))
+        // for RN@0.76
+        const [offsetX,offsetY,blurRadius,spreadRadius,color] = value.split(' ');
+        add(
+          'boxShadow',
+          `'${parseInt(offsetX)} ${parseInt(offsetY)} ${parseInt(blurRadius)} ${parseInt(spreadRadius)} ${color}'`
+        )
         break;
       }
       default: {
