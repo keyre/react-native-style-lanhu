@@ -57,12 +57,8 @@ const convert = text => {
       }
       case 'box-shadow': {
         // box-shadow: 0px 3px 6px 0px #FFE3CD;
-        // for RN@0.76
-        const [offsetX,offsetY,blurRadius,spreadRadius,color] = value.split(' ');
-        add(
-          'boxShadow',
-          `'${parseInt(offsetX)} ${parseInt(offsetY)} ${parseInt(blurRadius)} ${parseInt(spreadRadius)} ${color}'`
-        )
+        // for RN@0.79
+        add('boxShadow', `'${value}'`)
         break;
       }
       default: {
